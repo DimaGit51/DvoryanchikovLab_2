@@ -18,9 +18,6 @@ namespace HELPing
             }
             return x;
         }
-        static void Main(String[] args)
-        {
-            int n = helping.inputINT();
-        }
+
     }
 }
