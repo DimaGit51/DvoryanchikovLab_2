@@ -13,6 +13,7 @@ namespace Lab2_HW
     {
         public static string RecursionDecTo(int n, int k)
         {
+            
             if (n == 0) return "0";
             if (n / k > 0) return RecursionDecTo(n / k, k) + (n % k);
             else return "" + (n % k); 
