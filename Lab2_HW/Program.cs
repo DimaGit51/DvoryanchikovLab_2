@@ -13,10 +13,16 @@ namespace Lab2_HW
     {
         public static string RecursionDecTo(int n, int k)
         {
-            
-            if (n == 0) return "0";
-            if (n / k > 0) return RecursionDecTo(n / k, k) + (n % k);
-            else return "" + (n % k); 
+            int z; int i;
+            if (n == 0) z = 0;
+            if (n / k > 0) { z = (n / k);  }
+
+            else
+            {
+                z = 0;
+                i = n % k;
+            }
+            return RecursionDecTo(n / k, k) + (n % k);
         }
         static void Main(String[] args)
         {
