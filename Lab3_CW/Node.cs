@@ -63,6 +63,28 @@ namespace Lab3_CW
                 Node p1 = new Node(data, first);
             }
 
+            public void Create(int[] mass)
+            {
+                first = null;
+                for (int i = 0; i < mass.Length;)
+                {
+                    Node p = new Node();
+                    p.Info = mass[i];
+                    p.Link = first;
+                    first = p;
+                }
+            }
+
+            public void Print()
+            {
+                Node p = first;
+                while (p != null)
+                {
+                    Console.WriteLine(p.Info);
+                    p = p.Link;
+                }
+            }
+
 
             // значение информационного поля первого элемента
             // значение поля связи первого элемента – адрес второго
@@ -73,6 +95,12 @@ namespace Lab3_CW
 
         static void Main()
         {
+            int[] ints = {0,1,2,3,4}; 
+            SingleLinkedList L = new SingleLinkedList();
+            L.InsertBeforeFirst(10);
+            L.Create(ints);
+            L.Print();
+
 
         }
 
