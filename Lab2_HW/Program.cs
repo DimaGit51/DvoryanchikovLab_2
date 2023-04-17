@@ -11,18 +11,14 @@ namespace Lab2_HW
 {
     class Program
     {
-        public static string RecursionDecTo(int n, int k)
+        static string DecToBin(int n, int k)
         {
-            int z; int i;
-            if (n == 0) z = 0;
-            if (n / k > 0) { z = (n / k);  }
-
+            if (n == 0)    //базовый сценарий - выход из рекурсии 
+                return "0";
+            if (n / k > 0)
+                return DecToBin(n / k, k) + (char)(n % k + '0');
             else
-            {
-                z = 0;
-                i = n % k;
-            }
-            return RecursionDecTo(n / k, k) + (n % k);
+                return "" + (char)(n % k + '0');
         }
         static void Main(String[] args)
         {
@@ -30,7 +26,7 @@ namespace Lab2_HW
             int input_n = helping.inputINT();
             Console.Write("Система счисления - ");
             int input_k = helping.inputINT();
-            String output_n = RecursionDecTo(input_n, input_k);
+            String output_n = DecToBin(input_n, input_k);
             Console.WriteLine(output_n);
         }
 

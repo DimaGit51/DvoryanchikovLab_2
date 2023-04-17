@@ -8,60 +8,57 @@ namespace HELPing
 {
     internal class ExpClass1
     {
+        
         static void Main()
         {
-            int n = 4;
+            int n = 2;
+            int k = 0;
             double result=0;
-            double[] mass = new double[n];
-            int count = 1;
-
-            for (int i = 0; i < n; i++)
-            {
-                mass[i] = 1;
-            }
-
-            RecursionSumm23(n, mass, result);
+            result = RecursionSumm23(n, k, result);
+            Console.WriteLine(result);
             Console.ReadKey();
         }
 
 
-        static public void RecursionSumm23(int n, double[] mass, double result)
+
+        static public double RecursionSumm23(int n, int k, double result)
         {
-            if (n == 1) result = 1;
+            double returnResult = 0;
+            if (n == 1)  returnResult = 1;
             else
             {
-
-
-                double sumn = 0;
-                for (int i=0; i<mass.Length; i++)
+                if (k < Math.Pow(n,n))
                 {
-                    sumn+=mass[i];
-                }
-                result += 1 / sumn;
-
-
-
-                if (sumn < n * n) {
-
-                    int z = mass.Length - 1;
-                    mass[z]++;
-                    for (int j = z; j >= 1; j--)
+                    string str1 = DecTo(k, n);
+                    while ((str1.Length) < n) str1 = '0'+str1;
+                    string str2 = "";
+                    for (int i = 0; i < str1.Length; i++)
                     {
-                        if (mass[j] > n)
-                        {
-                            mass[j] = 1;
-                            mass[j - 1]++;
-                        }
-                       
+                        str2 += (double.Parse(str1[i].ToString())+1).ToString();
                     }
-                    RecursionSumm23(n, mass, result);
+                    double SummaZnam = 0;
+                    for (int i = 0; i < str2.Length; i++)
+                    {
+                        SummaZnam+=double.Parse(str2[i].ToString());
+                    }
+                    result += 1/SummaZnam;
+                    k++;
+                    result = RecursionSumm23(n, k, result);
+                    returnResult = result;
                 }
-                else
-                {
-                    Console.WriteLine("Result = {0}", result);
-                }
+                else returnResult = result;
             }
+            return returnResult;
         }
-        
+
+        static string DecTo(int n, int k)
+        {
+            if (n == 0)    //базовый сценарий - выход из рекурсии 
+                return "0";
+            if (n / k > 0)
+                return DecTo(n / k, k) + (char)(n % k + '0');
+            else
+                return "" + (char)(n % k + '0');
+        }
     }
 }
