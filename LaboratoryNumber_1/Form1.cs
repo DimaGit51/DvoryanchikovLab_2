@@ -23,7 +23,7 @@ namespace LaboratoryNumber_1
         }
         static public double RecursionSumm23(int n, int k, double result)
         {
-            double returnResult = 0;
+            double returnResult;
             if (n == 1) returnResult = 1;
             else
             {

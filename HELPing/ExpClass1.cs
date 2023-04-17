@@ -41,9 +41,12 @@ namespace HELPing
                     {
                         SummaZnam+=double.Parse(str2[i].ToString());
                     }
-                    result += 1/SummaZnam;
                     k++;
+
                     result = RecursionSumm23(n, k, result);
+                    result += 1 / SummaZnam;
+                    Console.WriteLine(result);
+
                     returnResult = result;
                 }
                 else returnResult = result;
