@@ -53,12 +53,11 @@ namespace LaboratoryNumber_1
 
         static string DecTo(int n, int k)
         {
-            if (n == 0)    //базовый сценарий - выход из рекурсии 
-                return "0";
-            if (n / k > 0)
-                return DecTo(n / k, k) + (char)(n % k + '0');
-            else
-                return "" + (char)(n % k + '0');
+            string x;
+            if (n == 0) x = "0";   
+            if (n / k > 0) x = DecTo(n / k, k) + (char)(n % k + '0');
+            else x = "" + (char)(n % k + '0');
+            return x;        
         }
 
         private void button_Calculate_Click(object sender, EventArgs e)
