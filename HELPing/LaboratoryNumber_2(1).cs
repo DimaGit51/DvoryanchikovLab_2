@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
@@ -44,54 +45,95 @@ namespace HELPing
         {
             first = null;
         }
+        public static void MergeLists(SingleLinkedList list1, SingleLinkedList list2)
+        {
+            SingleLinkedList mergedList = new SingleLinkedList();
+            Node current1 = list1.first;
+            Node current2 = list2.first;
+
+            while (current1 != null || current2 != null)
+            {
+                if (current1 != null)
+                {
+                    mergedList.InsertAfterEnd(current1.Info);
+                    current1 = current1.Link;
+                }
+
+                if (current2 != null)
+                {
+                    mergedList.InsertAfterEnd(current2.Info);
+                    current2 = current2.Link;
+                }
+            }
+            mergedList.Print();
+        }
         public void InsertBeforeFirst(int data)
         {
-            Node p = new Node();
-            p.Info = data;
-            // first – ссылка на первый узел списка
-            // data – значение информационного поля
-            // узла списка
-            // создание узла списка
-            // заполнение инф. поля узла списка - data
-            p.Link = first; // установка связи между вставленным узлом и списком
-            first = p; // новое значение ссылки на первый узел
+            Node p = new Node(data);
+            if (first == null)
+            {
+                first = p;
+            }
+            else
+            { // first – ссылка на первый узел списка
+              // data – значение информационного поля
+              // узла списка
+              // создание узла списка
+              // заполнение инф. поля узла списка - data
+                p.Link = first; // установка связи между вставленным узлом и списком
+                first = p; // новое значение ссылки на первый узел
+            }
         }
         public void InsertAfterEnd(int data)
         {
             Node p = new Node(data);
-            Node q = first;
-            while (q.Link != null)
+            if (first == null)
             {
-                q = q.Link;
+                first = p;
             }
-            q.Link = p;
+            else
+            {
+                Node q = first;
+                while (q.Link != null)
+                {
+                    q = q.Link;
+                }
+                q.Link = p;
+            }
         }
         public void InsertRandom(int data)
         {
             Node p = new Node(data);
-            Node q = first;
-            int count = 0;
-            while (q.Link != null)
+            if (first == null)
             {
-                q = q.Link;
-                count++;
+                first = p;
             }
-            Random rnd = new Random();
-            int countRnd = rnd.Next(1,count);
-
-
-
-            Node nc = null;
-            Node qc = first;
-            count = 0;
-            while (qc != null && count < countRnd)
+            else
             {
-                nc = qc;
-                qc = qc.Link;
-                count++;
+                Node q = first;
+                int count = 0;
+                while (q.Link != null)
+                {
+                    q = q.Link;
+                    count++;
+                }
+                Random rnd = new Random();
+                int countRnd = rnd.Next(1, count);
+
+
+
+                Node nc = null;
+                Node qc = first;
+                count = 0;
+                while (qc != null && count < countRnd)
+                {
+                    nc = qc;
+                    qc = qc.Link;
+                    count++;
+                }
+                nc.Link = p;
+                p.Link = qc;
             }
-            nc.Link = p;
-            p.Link = qc;
         }
         public void DeleteBeforeFirst()
         {
@@ -99,51 +141,61 @@ namespace HELPing
         }
         public void DeleteAfterEnd()
         {
-            int count = 0;
-            Node q = first;
-            while (q.Link != null)
+            if (first != null)
             {
-                q = q.Link;
-                count++;
+
+                int count = 0;
+                Node q = first;
+                while (q.Link != null)
+                {
+                    q = q.Link;
+                    count++;
+                }
+                int countS = 0;
+                Node p = first;
+                while (p.Link != null && countS < count - 1)
+                {
+                    p = p.Link;
+                    countS++;
+                }
+                DeleteRightElement(p);
             }
-            int countS = 0;
-            Node p = first;
-            while (p.Link != null&&countS < count-1)
-            {
-                p = p.Link;
-                countS++;
-            }
-            DeleteRightElement(p);
         }
         public void DeleteRandom()
         {
-            int count = 0;
-            Node q = first;
-            while (q.Link != null)
+            if (first != null)
             {
-                q = q.Link;
-                count++;
+                int count = 0;
+                Node q = first;
+                while (q.Link != null)
+                {
+                    q = q.Link;
+                    count++;
+                }
+                Random rnd = new Random();
+                int countRnd = rnd.Next(1, count);
+                int countS = 0;
+                Node p = first;
+                while (p.Link != null && countS < countRnd)
+                {
+                    p = p.Link;
+                    countS++;
+                }
+                DeleteRightElement(p);
             }
-            Random rnd = new Random();
-            int countRnd = rnd.Next(1, count);
-            int countS = 0;
-            Node p = first;
-            while (p.Link != null && countS < countRnd)
-            {
-                p = p.Link;
-                countS++;
-            }
-            DeleteRightElement(p);
         }
         public void DeleteRightElement(Node p)
         { // p – предварительно установленная ссылка
-            Node q; // q – ссылка на исключаемый узел
-            if (p != null && p.Link != null) // сылка p действительно установлена?
-
-            // ссылка p не указывает на последний узел в списке?
+            if (first != null)
             {
-                q = p.Link; // установить ссылку q на узел, следующий за элементом p
-                p.Link = q.Link; // изменить поле связи узла, за которым выполняется исключение
+                Node q; // q – ссылка на исключаемый узел
+                if (p != null && p.Link != null) // сылка p действительно установлена?
+
+                // ссылка p не указывает на последний узел в списке?
+                {
+                    q = p.Link; // установить ссылку q на узел, следующий за элементом p
+                    p.Link = q.Link; // изменить поле связи узла, за которым выполняется исключение
+                }
             }
         }
         public void Create(int[] mass)
@@ -199,6 +251,17 @@ namespace HELPing
             Console.WriteLine("Разрушение списка");
             L.Destroy();
             L.Print();
+
+            int[] ints1 = { 1, 3, 5, 7, 9 };
+            int[] ints2 = { 2, 4, 6, 8, 10 };
+
+            SingleLinkedList l1 = new SingleLinkedList();
+            SingleLinkedList l2 = new SingleLinkedList();
+
+            l1.Create(ints1);
+            l2.Create(ints2);
+
+            SingleLinkedList.MergeLists(l2, l1);
         }
     }
 

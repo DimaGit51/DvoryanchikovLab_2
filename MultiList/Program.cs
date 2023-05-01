@@ -7,7 +7,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace MultiList
 {
-    internal class Program
+    /*internal class Program
     {
         static void Main()
         {
@@ -131,5 +131,5 @@ namespace MultiList
                 }
             }
         }
-    }
+    }*/
 }

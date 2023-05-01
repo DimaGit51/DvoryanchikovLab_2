@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace RecursionList
 {
-    internal class Program
+    /*internal class Programs
     {
         static void Main()
         {
             RecursiveList L = new RecursiveList();
             L.First = L.CreateRecursive(3);
-            L.Print
+            L.Print();
 
         }
         public class RecursiveList
@@ -81,5 +81,5 @@ namespace RecursionList
             }
             return first;
         }
-    }
+    }*/
 }
