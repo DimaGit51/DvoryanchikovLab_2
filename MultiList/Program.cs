@@ -14,6 +14,8 @@ namespace MultiList
             MultiLinkedList M = new MultiLinkedList();
             M.CreareMulti(new string[] { "Андреев", "Борисов", "Яковлев" }, new double[] { 4, 5, 6, 0, 4, 2 });
             M.PrintMark();
+            MultiNode tmp = M.Find("Борисов");
+            M.DeleteMulti(tmp);
         }
         public class MultiNode // Класс «Узел мультисписка»
         {
@@ -92,6 +94,20 @@ namespace MultiList
                         p = p.Mnext; // перейти к следующему узлу
                     }
                 }
+            }
+            public void DeleteMulti(MultiNode p)
+            {
+                if (head != null && head.Mnext != head && head.Mprev != head && p != null)
+                {
+                    {
+                        p.Fprev.Fnext = p.Fnext;
+                        p.Fnext.Fprev = p.Fprev;
+                        p.Mprev.Mnext = p.Mnext; 
+                        p.Mnext.Mprev = p.Fprev; 
+                    }
+
+                }
+
             }
             public void CreareMulti(string[] fams, double[] marks)
             {

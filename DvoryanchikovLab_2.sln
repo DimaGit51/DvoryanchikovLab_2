@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork_18.04.2023", "Home
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiList", "MultiList\MultiList.csproj", "{5F1CFD06-A6A9-4C1B-BFC9-07DE57C973D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursionList", "RecursionList\RecursionList.csproj", "{532FE412-EA4B-4357-97FC-59217F8FA039}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{5F1CFD06-A6A9-4C1B-BFC9-07DE57C973D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1CFD06-A6A9-4C1B-BFC9-07DE57C973D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F1CFD06-A6A9-4C1B-BFC9-07DE57C973D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532FE412-EA4B-4357-97FC-59217F8FA039}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532FE412-EA4B-4357-97FC-59217F8FA039}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532FE412-EA4B-4357-97FC-59217F8FA039}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532FE412-EA4B-4357-97FC-59217F8FA039}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

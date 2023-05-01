@@ -9,7 +9,7 @@ namespace HELPing
     internal class ExpClass1
     {
         
-        static void Main()
+        /*static void Main()
         {
             int n = 2;
             int k = 0;
@@ -19,7 +19,7 @@ namespace HELPing
             Console.ReadKey();
         }
 
-
+        */
 
         static public double RecursionSumm23(int n, int k, double result)
         {
@@ -45,7 +45,7 @@ namespace HELPing
 
                     result = RecursionSumm23(n, k, result);
                     result += 1 / SummaZnam;
-                    Console.WriteLine(result);
+                    Console.WriteLine(str2);
 
                     returnResult = result;
                 }

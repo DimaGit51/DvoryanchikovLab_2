@@ -67,7 +67,7 @@ namespace LaboratoryNumber_1
             int k = 0;
             double result = 0;
             if (answerINT == -1) { textBox_ErrorCode.Text = "Errors Code: -1"; textBox_Errors.Text = "Вы ввели не целое число! Введите целое число!"; }
-            else if (answerINT == -2) { textBox_ErrorCode.Text = "Errors Code: -2"; textBox_Errors.Text = "Вы ввели целое отрицательное число! Введите целое положительное число!"; }
+            else if (answerINT == -2) { textBox_ErrorCode.Text = "Errors Code: -2"; textBox_Errors.Text = "Вы ввели целое отрицательное число (или ноль)! Введите целое положительное число!"; }
             else if (answerINT == -3) { textBox_ErrorCode.Text = "Errors Code: -3"; textBox_Errors.Text = "Переполнение Стека!"; }
             else {result = RecursionSumm23(answerINT, k, result); textBox_answer.Text = result.ToString(); }
            
@@ -77,7 +77,7 @@ namespace LaboratoryNumber_1
         {
             int x;
             if (!int.TryParse(n, out x)) x = -1;
-            else if (x < 0) x = -2;
+            else if (x <= 0) x = -2;
             else if (x > 5) x = -3;
             return x;
         }
