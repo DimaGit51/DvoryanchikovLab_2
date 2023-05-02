@@ -54,14 +54,10 @@ namespace Programing
 
         private int Recursion(Node p)
         {
-            if (p == null)
-            {
-                return 0;
-            }
-            else
-            {
-                return 1 + Recursion(p.Link);
-            }
+            int count;
+            if (p == null) count = 0;
+            else count =  1 + Recursion(p.Link);
+            return count;
         }
         public void Create(int[] mass)
         {
@@ -79,11 +75,10 @@ namespace Programing
     {
         static void Main()
         {
-            int[] ints = { 0, 1, 2, 3, 4 };
+            int[] ints = { 0, 1, 2, 3 };
             SingleLinkedList L = new SingleLinkedList();
             L.Create(ints);
             int count = 0;
-
             count = L.Rec();
             Console.WriteLine("Количество узлов {0}", count);
         }

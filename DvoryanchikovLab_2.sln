@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursionList", "RecursionL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaboratoryNumber_2", "LaboratoryNumber_2\LaboratoryNumber_2.csproj", "{C1BF4B7C-7C7E-4703-957B-C13334970200}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeWork 02.05.2023", "HomeWork 02.05.2023\HomeWork 02.05.2023.csproj", "{52A51C54-DB93-43F9-BD1F-A514AE2468B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeWork 02.05.2023", "HomeWork 02.05.2023\HomeWork 02.05.2023.csproj", "{52A51C54-DB93-43F9-BD1F-A514AE2468B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
