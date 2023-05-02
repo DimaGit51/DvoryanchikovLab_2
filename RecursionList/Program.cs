@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace RecursionList
 {
-    /*internal class Programs
+    internal class Programs
     {
         static void Main()
         {
             RecursiveList L = new RecursiveList();
-            L.First = L.CreateRecursive(3);
-            L.Print();
+            
 
         }
         public class RecursiveList
@@ -71,7 +70,6 @@ namespace RecursionList
             else {
 
                 Console.Write("Введите количество элементов = ");
-                int x;
                 while ((!int.TryParse(Console.ReadLine(), out x)))
                 {
                     Console.Write("Вы ввели не число ^int^! Введите число: ");
@@ -81,5 +79,5 @@ namespace RecursionList
             }
             return first;
         }
-    }*/
+    }
 }
